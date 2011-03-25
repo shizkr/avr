@@ -1,0 +1,2 @@
+#!/bin/sh
+sudo avrdude -p m328p -c avrispmkII -P usb -U test/out.hex
