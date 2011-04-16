@@ -2,5 +2,8 @@
 먼저 아래 사이트 확인
 Refer to http://mazeroom.cafe24.com/index.php/Atmega328
 
+* gccmakedep 를 사용하기 위해서는 아래 설치
+sudo apt-get install xutils-dev
+
 * How to flash your output hex file
 sudo avrdude -p m328p -c avrispmkII -P usb -U test.hex

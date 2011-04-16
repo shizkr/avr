@@ -3,20 +3,32 @@
 void uart_init();
 void delay();
 unsigned char USART_Rx();
+void init_port();
 
 int main()
 {
-unsigned char data;
+	unsigned char data;
+	char output = 0;
 
-uart_init();
+	uart_init();
+	init_port();
 
-for(data='a';data<='z';data++)
-{
+	for(;;)
+	{
+		delay();
+		PORTB = ( 0 <<PB5 );
+		delay();
+		PORTB = ( 1 <<PB5 );
+	}
 
-delay();
+	return 0;
 }
 
-return 0;
+void init_port(void)
+{
+	PORTB = ( 1<<PB5 );
+	DDRB = ( 1<<DDB5 );
+	//__no_operation();
 }
 
 void uart_init()
@@ -30,7 +42,8 @@ unsigned char USART_Rx()
 
 void delay()
 {
-unsigned int i,j;
-for (i=0;i<100 ;i++ )
-for(j=0;j<30;j++);
+	unsigned long i,j,k;
+	for (i=0;i<9000000 ;i++ )
+		for(j=0;j<9000000;j++)
+			k=j;
 }
